@@ -37,6 +37,9 @@ class LoginViewModel() : ViewModel() {
             } else{
                 // Handle the login error.
                 Log.d("View Model error", "login: ${loginResponse.code()}")
+                withContext(Dispatchers.Main) {
+                    _status.value = loginResponse.code()
+                }
             }
         }
     }
