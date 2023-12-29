@@ -26,8 +26,8 @@ class LoginActivity : AppCompatActivity() {
         Log.d("TAG", "onCreate: LoginActivity")
         loginViewModel.status.observe(this) { status ->
             when (status) {
-                200 -> Toast.makeText(this@LoginActivity, "Success", Toast.LENGTH_SHORT).show()
-                400 -> Toast.makeText(this@LoginActivity, "Invalid Credential", Toast.LENGTH_SHORT).show()
+                200 -> startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                400 -> Toast.makeText(this@LoginActivity, "User Not Found", Toast.LENGTH_SHORT).show()
                 // Tambahkan kasus lain jika diperlukan
             }
         }

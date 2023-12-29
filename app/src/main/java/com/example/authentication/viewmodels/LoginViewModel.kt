@@ -31,15 +31,12 @@ class LoginViewModel() : ViewModel() {
 
             if (loginResponse.isSuccessful) {
                 Log.d("View Model", "login: ${loginResponse.body()}")
-                withContext(Dispatchers.Main) {
-                    _status.value = loginResponse.code()
-                }
             } else{
                 // Handle the login error.
                 Log.d("View Model error", "login: ${loginResponse.code()}")
-                withContext(Dispatchers.Main) {
-                    _status.value = loginResponse.code()
-                }
+            }
+            withContext(Dispatchers.Main) {
+                _status.value = loginResponse.code()
             }
         }
     }
